@@ -1,5 +1,5 @@
 # BlueFish
-> ## **_BlueFish is a complete covert application that allows a user to open a port on a firewall, communicate with a “disguised” backdoor._**
+> ## **_BlueFish is a complete covert application that allows a user to remotely open a port on a firewall, communicate with a “disguised” backdoor._**
 
 In this cloud computing era, more and more companies/individules have created Linux VMs in the cloud and millions of suspicius traffic are targeting the ssh processes running on each VM. Preventing unauthorized ssh access has become the most important job for IT professionals. This is why the Port Knocking technology comes into play.
 
