@@ -81,5 +81,23 @@ Where:
 	TCP.res1 = Protocol type (0x1000 = TCP, 0x0010 = UDP, 0x1010 = both TCP + UDP) 
 	TCP.Flags (Only SYN flag set) 
 
+Explanation of knock struct: 
+
+	struct knock 
+	{ 
+		 unsigned checksum :16; // For extra checksum 
+		 unsigned port :16; // The knocking port number 
+		 struct Time // Knocking info 
+		 { 
+			 unsigned hour : 5; 
+			 unsigned minute : 6; 
+			 unsigned second : 6; 
+			 unsigned dur :15; 
+		 } time; 
+		 unsigned sip :32; // The port will be opened for this IP only 
+	};                         // 12 bytes totally 
+
+The checksum is for the whole struct. The client program will firstly fill out this structure with zero checksum, then calculate the checksum and fill it to the struct. Secondly the structure will be encrypted by 3-des algorithm using the user supplied password and embedded into the TCP header. 
+
 
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
