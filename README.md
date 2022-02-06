@@ -97,7 +97,7 @@ Explanation of knock struct:
 		 unsigned sip :32; // The port will be opened for this IP only
 	};                         // 12 bytes total
 ```
-The checksum is for the whole struct. The client program will firstly fill out this structure with zero checksum, then calculate the checksum and fill it to the struct. Secondly the structure will be encrypted by 3-des algorithm using the user supplied password and embedded into the TCP header. 
+The checksum is for the whole struct. The client program will firstly fill out this structure with zero checksum, then calculate the checksum and fill it back to the struct. Secondly the structure will be encrypted by 3-des algorithm using the user supplied password and embedded into the TCP header. 
 
 #### ICMP Echo-reply
 ![image](https://user-images.githubusercontent.com/57880343/152665465-75f65041-6ca1-43bb-a497-ef2d2de366b2.png)
