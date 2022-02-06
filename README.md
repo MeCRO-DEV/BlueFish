@@ -134,5 +134,7 @@ Where:
 ![image](https://user-images.githubusercontent.com/57880343/152665700-6fd7e293-ce72-46d0-bd75-8479998bc4bd.png)
 ![image](https://user-images.githubusercontent.com/57880343/152665711-9a5fc27b-ebda-4bb6-b769-73bcb75df7f9.png)
 
+![image](https://user-images.githubusercontent.com/57880343/152666153-0751de2e-f60f-4ced-9850-f2e5e2631329.png)
+
 > ## **_Please DO NOT use this program in an production environment as the 3-DES and 3-XOR encryption algorithm is not strong enough to protect your token. I will add AES256/512 or RSA later to make it more secure._**
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
