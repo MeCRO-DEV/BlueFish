@@ -64,8 +64,22 @@ Where:
 	TCP.SrcPort = Source port for authentication packet (Can be configured) 
 	TCP.DstPort = Destination port for authentication packet (Can be configured) 
 	TCP.Flags (Only SYN flag set)
-	
-	
-	
-	
+
+#### TCP Header 02
+![image](https://user-images.githubusercontent.com/57880343/152665414-63fccc12-a6b2-4ff8-af02-9448046e9ecd.png)
+
+Where:
+
+	IP.Identification = knock.checksum (3-DES encrypted) 
+	IP.SrcAddr = Source Address (Can be spoofed) 
+	IP.DstAddr = Destination Address 
+	TCP.SrcPort = Source Port (Can be configured) 
+	TCP.DstPort = Destination Port (Can be configured) 
+	TCP.Window = knock.port (The actual port need to be opened) (3-DES encrypted) 
+	TCP.Seq = knock.time (Including start time and how long the port will be opened) (3-DES encrypted) 
+	TCP.Ack_Seq = knock.sip (The actual IP address the required port will be opened to) (3-DES encrypted) 
+	TCP.res1 = Protocol type (0x1000 = TCP, 0x0010 = UDP, 0x1010 = both TCP + UDP) 
+	TCP.Flags (Only SYN flag set) 
+
+
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
