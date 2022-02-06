@@ -8,6 +8,26 @@ A backdoor in a computer system (or cryptosystem/algorithm) is a method of bypas
 
 Port knocking is a unique technique that allows remote users to open up a port remotely by sending one or more authentication knocking packets (known as token). Once the server receives the token, it will decrypt and authenticate it with specific algorithm, then open a port for the client specified in the token. After a specified time period, the server will close the port and only allows the established connections to keep working. With port knocking, an association between an IP address and individual user is no longer necessary. The users can identify themselves using their authentication tokens without requiring any ports to be opened on the server. It allows a specific user to connect from any IP, rather than any user to connect from a specific IP.
 
+### Features
 
+#### Server
+ Working as a Linux daemon with root privilege. 
+ Self-camouflaged and cannot be identified from process table easily. 
+ Packets authentication needed. 
+ All outputs will be redirected to NULL device. 
+ Can accept any kind of Linux commands and execute them covertly. 
+ Can be terminated remotely. 
+ Sniffing packets in non-promiscuous mode so as to prevent it from showing up in local system logs. 
+ Simple Triple-XOR and Triple-DES algorithm are used. 
+ It allows users to send their commands interactively. 
+ Client IP has to be authenticated. 
+ Information will only be sent to the authenticated IP address, where ever the request packets come from. 
+ Parameters will be loaded from a configuration file. 
+ Results can be sent back to clients using covert channel. 
+ Single packet port knocking and authentication. 
+ Firewall rules handling. 
+ Support file exfiltration via covert channel. 
+ Port knocking is protected by a password which can be changed only on the server side. 
+ Uses both libpcap and raw socket to sniff packets at the data link layer 
 
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
