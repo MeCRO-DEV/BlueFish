@@ -59,8 +59,8 @@ Where:
 
 Where:
 ```
-	TCP.Seq = Client IP needed to be authenticated (3-DES encrypted) 
-	TCP.Ack = Server IP needed to be verified (3-DES encrypted) 
+	TCP.Seq     = Client IP needed to be authenticated (3-DES encrypted) 
+	TCP.Ack     = Server IP needed to be verified (3-DES encrypted) 
 	TCP.SrcPort = Source port for authentication packet (Can be configured) 
 	TCP.DstPort = Destination port for authentication packet (Can be configured) 
 	TCP.Flags (Only SYN flag set)
@@ -71,14 +71,14 @@ Where:
 Where:
 ```
 	IP.Identification = knock.checksum (3-DES encrypted) 
-	IP.SrcAddr = Source Address (Can be spoofed) 
-	IP.DstAddr = Destination Address 
-	TCP.SrcPort = Source Port (Can be configured) 
-	TCP.DstPort = Destination Port (Can be configured) 
-	TCP.Window = knock.port (The actual port need to be opened) (3-DES encrypted) 
-	TCP.Seq = knock.time (Including start time and how long the port will be opened) (3-DES encrypted) 
-	TCP.Ack_Seq = knock.sip (The actual IP address the required port will be opened to) (3-DES encrypted) 
-	TCP.res1 = Protocol type (0x1000 = TCP, 0x0010 = UDP, 0x1010 = both TCP + UDP) 
+	IP.SrcAddr        = Source Address (Can be spoofed) 
+	IP.DstAddr        = Destination Address 
+	TCP.SrcPort       = Source Port (Can be configured) 
+	TCP.DstPort       = Destination Port (Can be configured) 
+	TCP.Window        = knock.port (The actual port need to be opened) (3-DES encrypted) 
+	TCP.Seq           = knock.time (Including start time and how long the port will be opened) (3-DES encrypted) 
+	TCP.Ack_Seq       = knock.sip (The actual IP address the required port will be opened to) (3-DES encrypted) 
+	TCP.res1          = Protocol type (0x1000 = TCP, 0x0010 = UDP, 0x1010 = both TCP + UDP) 
 	TCP.Flags (Only SYN flag set) 
 ```
 Explanation of knock struct: 
@@ -104,22 +104,22 @@ The checksum is for the whole struct. The client program will firstly fill out t
 
 Where:
 ```
-	ICMP.Type = 0 (ICMP Echo-Reply) 
-	ICMP.Code = 8 (For screening packets) 
-	ICMP.Echo.ID = 0x55AA (For screening packets, can be configured) 
+	ICMP.Type     = 0 (ICMP Echo-Reply) 
+	ICMP.Code     = 8 (For screening packets) 
+	ICMP.Echo.ID  = 0x55AA (For screening packets, can be configured) 
 	ICMP.Echo.Seq = To simulate the ping sequence number 
-	Data = Command execution results (3-xor encrypted) 
+	Data          = Command execution results (3-xor encrypted) 
 ```
 #### ICMP Echo
 ![image](https://user-images.githubusercontent.com/57880343/152665488-ef1c820d-6baf-455b-b1bf-f348cb89dae7.png)
 
 Where:
 ```
-	ICMP.Type = 8 (ICMP Echo) 
-	ICMP.Code = Number of bytes actually the
-	ICMP.Echo.ID = 0xAA55 (For screening packets
+	ICMP.Type     = 8 (ICMP Echo) 
+	ICMP.Code     = Number of bytes actually the
+	ICMP.Echo.ID  = 0xAA55 (For screening packets
 	ICMP.Echo.Seq = Simulating the ping sequence
-	Data = File contents (3-xor encrypted) 
+	Data          = File contents (3-xor encrypted) 
 ```
 ### State Transition Diagram
 #### Server
