@@ -94,8 +94,8 @@ Explanation of knock struct:
 			 unsigned second : 6; 
 			 unsigned dur :15; 
 		 } time; 
-		 unsigned sip :32; // The port will be opened for this IP only 
-	};                         // 12 bytes totally 
+		 unsigned sip :32; // The port will be opened for this IP only
+	};                         // 12 bytes total
 ```
 The checksum is for the whole struct. The client program will firstly fill out this structure with zero checksum, then calculate the checksum and fill it to the struct. Secondly the structure will be encrypted by 3-des algorithm using the user supplied password and embedded into the TCP header. 
 
