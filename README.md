@@ -57,5 +57,15 @@ Where:
 #### TCP Header 01
 ![image](https://user-images.githubusercontent.com/57880343/152665378-0426eea2-a08e-491e-adb4-a09ac625a926.png)
 
+Where:
 
+	TCP.Seq = Client IP needed to be authenticated (3-DES encrypted) 
+	TCP.Ack = Server IP needed to be verified (3-DES encrypted) 
+	TCP.SrcPort = Source port for authentication packet (Can be configured) 
+	TCP.DstPort = Destination port for authentication packet (Can be configured) 
+	TCP.Flags (Only SYN flag set)
+	
+	
+	
+	
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
