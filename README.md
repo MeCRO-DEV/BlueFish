@@ -45,7 +45,7 @@ Port knocking is a unique technique that allows remote users to open up a port r
 ![image](https://user-images.githubusercontent.com/57880343/152665295-f37131ad-99fd-47d1-a933-d34b3a9c2741.png)
 
 Where: 
-
+```
 	IP.SourceAddr = Source address (Can be spoofed) 
 	IP.DestAddr = Destination address 
 	UDP.SrcPort = Source port (Can be configured) 
@@ -53,23 +53,23 @@ Where:
 	Data[0]..Data[3] = 0x55AA (Token 1) 
 	Data[60]..Data[63] = 0xAA55 (Token 2) 
 	Data[4]..Data[59] = Command (3-xor encrypted) 
-
+```
 #### TCP Header 01
 ![image](https://user-images.githubusercontent.com/57880343/152665378-0426eea2-a08e-491e-adb4-a09ac625a926.png)
 
 Where:
-
+```
 	TCP.Seq = Client IP needed to be authenticated (3-DES encrypted) 
 	TCP.Ack = Server IP needed to be verified (3-DES encrypted) 
 	TCP.SrcPort = Source port for authentication packet (Can be configured) 
 	TCP.DstPort = Destination port for authentication packet (Can be configured) 
 	TCP.Flags (Only SYN flag set)
-
+```
 #### TCP Header 02
 ![image](https://user-images.githubusercontent.com/57880343/152665414-63fccc12-a6b2-4ff8-af02-9448046e9ecd.png)
 
 Where:
-
+```
 	IP.Identification = knock.checksum (3-DES encrypted) 
 	IP.SrcAddr = Source Address (Can be spoofed) 
 	IP.DstAddr = Destination Address 
@@ -80,9 +80,9 @@ Where:
 	TCP.Ack_Seq = knock.sip (The actual IP address the required port will be opened to) (3-DES encrypted) 
 	TCP.res1 = Protocol type (0x1000 = TCP, 0x0010 = UDP, 0x1010 = both TCP + UDP) 
 	TCP.Flags (Only SYN flag set) 
-
+```
 Explanation of knock struct: 
-
+```
 	struct knock 
 	{ 
 		 unsigned checksum :16; // For extra checksum 
@@ -96,19 +96,20 @@ Explanation of knock struct:
 		 } time; 
 		 unsigned sip :32; // The port will be opened for this IP only 
 	};                         // 12 bytes totally 
-
+```
 The checksum is for the whole struct. The client program will firstly fill out this structure with zero checksum, then calculate the checksum and fill it to the struct. Secondly the structure will be encrypted by 3-des algorithm using the user supplied password and embedded into the TCP header. 
 
 #### ICMP Echo-reply
 ![image](https://user-images.githubusercontent.com/57880343/152665465-75f65041-6ca1-43bb-a497-ef2d2de366b2.png)
 
 Where:
+```
 	ICMP.Type = 0 (ICMP Echo-Reply) 
 	ICMP.Code = 8 (For screening packets) 
 	ICMP.Echo.ID = 0x55AA (For screening packets, can be configured) 
 	ICMP.Echo.Seq = To simulate the ping sequence number 
 	Data = Command execution results (3-xor encrypted) 
-
+```
 #### ICMP Echo
 ![image](https://user-images.githubusercontent.com/57880343/152665488-ef1c820d-6baf-455b-b1bf-f348cb89dae7.png)
 
@@ -120,7 +121,6 @@ Where:
 	ICMP.Echo.Seq = Simulating the ping sequence
 	Data = File contents (3-xor encrypted) 
 ```
-
 ### State Transition Diagram
 #### Server
 ![image](https://user-images.githubusercontent.com/57880343/152665567-d518a1e1-c251-48d9-b9c8-8376270fa437.png)
