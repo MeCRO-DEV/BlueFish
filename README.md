@@ -54,4 +54,8 @@ Where:
 	Data[60]..Data[63] = 0xAA55 (Token 2) 
 	Data[4]..Data[59] = Command (3-xor encrypted) 
 
+#### TCP Header 01
+![image](https://user-images.githubusercontent.com/57880343/152665378-0426eea2-a08e-491e-adb4-a09ac625a926.png)
+
+
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
