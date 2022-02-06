@@ -18,10 +18,10 @@ Port knocking is a unique technique that allows remote users to open up a port r
 - Can accept any kind of Linux commands and execute them covertly. 
 - Can be terminated remotely. 
 - Sniffing packets in non-promiscuous mode so as to prevent it from showing up in local system logs. 
-- Simple Triple-XOR and Triple-DES algorithm are used. 
+- Simple Triple-XOR and Triple-DES algorithm are used. (more algorithm will be added later)
 - It allows users to send their commands interactively. 
 - Client IP has to be authenticated. 
-- Information will only be sent to the authenticated IP address, where ever the request packets come from. 
+- Information will only be sent to the authenticated IP address, wherever the request packets come from. 
 - Parameters will be loaded from a configuration file. 
 - Results can be sent back to clients using covert channel. 
 - Single packet port knocking and authentication. 
