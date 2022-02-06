@@ -82,7 +82,7 @@ Where:
 	TCP.Flags (Only SYN flag set) 
 ```
 Explanation of knock struct: 
-```
+```C
 	struct knock 
 	{ 
 		 unsigned checksum :16; // For extra checksum 
