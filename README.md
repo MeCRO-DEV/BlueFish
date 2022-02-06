@@ -30,4 +30,14 @@ Port knocking is a unique technique that allows remote users to open up a port r
 - Port knocking is protected by a password which can be changed only on the server side. 
 - Uses both libpcap and raw socket to sniff packets at the data link layer 
 
+#### Client
+- GTK+ GUI and GThread application for Gnome. (Will move to Qt cross-platform when I have time)
+- Sending any command to the server using covert channel
+- Downloading files from the server. 
+- Sending port knocking packets. 
+- Sending IP authentication request packet for itself
+- All source IPs can be spoofed except the authentication
+- Terminating the server remotely. 
+- Parameters are loaded from a configuration file.
+
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
