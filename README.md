@@ -136,7 +136,7 @@ Where:
 
 ![image](https://user-images.githubusercontent.com/57880343/152666181-f28f2b4e-5210-48d3-b5c9-61ea41f64ce4.png)
 
-> ## **_Please DO NOT use this program in an production environment as the 3-DES and 3-XOR encryption algorithm is not strong enough to protect your token. I will add AES256/512 or RSA later to make it more secure._**
+> ## **_Please DO NOT use this program in a production environment as the 3-DES and 3-XOR encryption algorithm is not strong enough to protect your token. I will add AES256/512 or RSA later to make it more secure._**
 
 ![image](https://user-images.githubusercontent.com/57880343/152666187-da18d276-70b1-4594-bf1a-94849b425900.png)
 
