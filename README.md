@@ -43,6 +43,13 @@ Port knocking is a unique technique that allows remote users to open up a port r
 ### The Protocols
 #### UDP + Payload
 ![image](https://user-images.githubusercontent.com/57880343/152665295-f37131ad-99fd-47d1-a933-d34b3a9c2741.png)
-
+Where: 
+	IP.SourceAddr = Source address (Can be spoofed) 
+	IP.DestAddr = Destination address 
+	UDP.SrcPort = Source port (Can be configured) 
+	UDP.DetPort = Destination port (Can be configured) 
+	Data[0]..Data[3] = 0x55AA (Token 1) 
+	Data[60]..Data[63] = 0xAA55 (Token 2) 
+	Data[4]..Data[59] = Command (3-xor encrypted) 
 
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
