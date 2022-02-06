@@ -113,12 +113,13 @@ Where:
 ![image](https://user-images.githubusercontent.com/57880343/152665488-ef1c820d-6baf-455b-b1bf-f348cb89dae7.png)
 
 Where:
+```
 	ICMP.Type = 8 (ICMP Echo) 
 	ICMP.Code = Number of bytes actually the
 	ICMP.Echo.ID = 0xAA55 (For screening packets
 	ICMP.Echo.Seq = Simulating the ping sequence
 	Data = File contents (3-xor encrypted) 
-
+```
 
 ### State Transition Diagram
 #### Server
