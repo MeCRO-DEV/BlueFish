@@ -99,5 +99,30 @@ Explanation of knock struct:
 
 The checksum is for the whole struct. The client program will firstly fill out this structure with zero checksum, then calculate the checksum and fill it to the struct. Secondly the structure will be encrypted by 3-des algorithm using the user supplied password and embedded into the TCP header. 
 
+#### ICMP Echo-reply
+![image](https://user-images.githubusercontent.com/57880343/152665465-75f65041-6ca1-43bb-a497-ef2d2de366b2.png)
+
+Where:
+	ICMP.Type = 0 (ICMP Echo-Reply) 
+	ICMP.Code = 8 (For screening packets) 
+	ICMP.Echo.ID = 0x55AA (For screening packets, can be configured) 
+	ICMP.Echo.Seq = To simulate the ping sequence number 
+	Data = Command execution results (3-xor encrypted) 
+
+#### ICMP Echo
+![image](https://user-images.githubusercontent.com/57880343/152665488-ef1c820d-6baf-455b-b1bf-f348cb89dae7.png)
+
+Where:
+	ICMP.Type = 8 (ICMP Echo) 
+	ICMP.Code = Number of bytes actually the
+	ICMP.Echo.ID = 0xAA55 (For screening packets
+	ICMP.Echo.Seq = Simulating the ping sequence
+	Data = File contents (3-xor encrypted) 
+
+### State Transition Diagram
+#### Server
+![image](https://user-images.githubusercontent.com/57880343/152665567-d518a1e1-c251-48d9-b9c8-8376270fa437.png)
+#### Client
+![image](https://user-images.githubusercontent.com/57880343/152665577-1b7caf5f-efbe-4a7e-ad40-9b4cf9606474.png)
 
 ![](https://komarev.com/ghpvc/?username=MeCRO-DEV&color=green)
